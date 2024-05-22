@@ -9,10 +9,7 @@ const PopularMenu = () => {
   return (
     <div className="container mx-auto">
       <SectionTitle subHeading={"Check it out"} heading={"From our menu"}></SectionTitle>
-      <CategoryMenu items={popularMenu}></CategoryMenu>
-      <div className="flex justify-center mt-10">
-        <button className="btn">Show all menu</button>
-      </div>
+      <CategoryMenu items={popularMenu} btnText={"Order Your Favourite Food"} btnLink={""}></CategoryMenu>
     </div>
   );
 };

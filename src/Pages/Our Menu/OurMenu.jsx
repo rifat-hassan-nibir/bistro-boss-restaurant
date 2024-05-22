@@ -11,8 +11,9 @@ const OurMenu = () => {
     <div>
       <CoverTitle image={cover} title={"our menu"} subTitle={"would you like to try a new dish"}></CoverTitle>
       <div className="container mx-auto">
+        {/* Today's offer */}
         <SectionTitle heading={"today's offer"} subHeading={"don't miss"}></SectionTitle>
-        <CategoryMenu items={offeredMenu}></CategoryMenu>
+        <CategoryMenu items={offeredMenu} btnText={"Order Your Favourite Food"} btnLink={""}></CategoryMenu>
       </div>
     </div>
   );
