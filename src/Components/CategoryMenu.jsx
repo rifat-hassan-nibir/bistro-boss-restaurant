@@ -11,7 +11,7 @@ const CategoryMenu = ({ items, btnText, btnLink }) => {
           <MenuItem item={menu} key={menu._id}></MenuItem>
         ))}
       </div>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center my-10">
         <Link to={`/${btnLink}`} className="btn">
           <p>{btnText}</p>
         </Link>
