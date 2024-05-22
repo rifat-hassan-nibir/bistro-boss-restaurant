@@ -1,6 +1,6 @@
 import SectionTitle from "../../../Components/SectionTitle";
-import MenuItem from "../../../Components/MenuItem";
 import useMenu from "../../../Hooks/useMenu";
+import CategoryMenu from "../../../Components/CategoryMenu";
 
 const PopularMenu = () => {
   const [menu] = useMenu();
@@ -9,11 +9,7 @@ const PopularMenu = () => {
   return (
     <div className="container mx-auto">
       <SectionTitle subHeading={"Check it out"} heading={"From our menu"}></SectionTitle>
-      <div className="grid grid-cols-2 gap-[32px]">
-        {popularMenu?.map((menu) => (
-          <MenuItem item={menu} key={menu._id}></MenuItem>
-        ))}
-      </div>
+      <CategoryMenu items={popularMenu}></CategoryMenu>
       <div className="flex justify-center mt-10">
         <button className="btn">Show all menu</button>
       </div>
