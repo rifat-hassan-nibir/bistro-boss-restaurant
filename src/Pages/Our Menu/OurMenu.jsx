@@ -10,6 +10,7 @@ const OurMenu = () => {
   const offeredMenu = menu.filter((item) => item.category === "offered");
   const deserts = menu.filter((item) => item.category === "dessert");
   const salad = menu.filter((item) => item.category === "salad");
+
   return (
     <div>
       <CoverTitle image={cover} title={"our menu"} subTitle={"would you like to try a new dish"}></CoverTitle>
