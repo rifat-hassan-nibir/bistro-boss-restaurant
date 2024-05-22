@@ -23,6 +23,7 @@ const OurShop = () => {
             <Tab>Pizza</Tab>
             <Tab>Soups</Tab>
             <Tab>Desserts</Tab>
+            <Tab>Desserts</Tab>
             <Tab>Drinks</Tab>
           </TabList>
 
