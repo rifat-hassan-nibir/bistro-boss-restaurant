@@ -1,18 +1,10 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle";
 import MenuItem from "../../../Components/MenuItem";
+import useMenu from "../../../Hooks/useMenu";
 
 const PopularMenu = () => {
-  const [popularMenu, setPopularMenu] = useState();
-
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const menu = data.filter((item) => item.category === "popular");
-        setPopularMenu(menu);
-      });
-  }, []);
+  const [menu] = useMenu();
+  const popularMenu = menu.filter((item) => item.category === "popular");
 
   return (
     <div className="container mx-auto">
