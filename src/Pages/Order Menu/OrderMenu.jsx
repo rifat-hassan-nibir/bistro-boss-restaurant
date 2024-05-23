@@ -4,8 +4,16 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useMenu from "../../Hooks/useMenu";
 import FoodCard from "../../Components/FoodCard";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
 
-const OurShop = () => {
+const OrderMenu = () => {
+  const categories = ["salad", "pizza", "soup"];
+  const { category } = useParams();
+  const initialIndex = categories.indexOf(category);
+
+  const [tabIndex, setTabIndex] = useState(initialIndex);
+
   const [menu] = useMenu();
   const salad = menu.filter((item) => item.category === "salad");
   const pizza = menu.filter((item) => item.category === "pizza");
@@ -13,18 +21,15 @@ const OurShop = () => {
 
   return (
     <div>
-      <CoverTitle image={shopImg} title={"our shop"}></CoverTitle>
+      <CoverTitle image={shopImg} title={"order menu"}></CoverTitle>
 
       {/* Tabs */}
       <div className="container mx-auto">
-        <Tabs>
+        <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
             <Tab>Salad</Tab>
             <Tab>Pizza</Tab>
             <Tab>Soups</Tab>
-            <Tab>Desserts</Tab>
-            <Tab>Desserts</Tab>
-            <Tab>Drinks</Tab>
           </TabList>
 
           <TabPanel>
@@ -56,4 +61,4 @@ const OurShop = () => {
   );
 };
 
-export default OurShop;
+export default OrderMenu;

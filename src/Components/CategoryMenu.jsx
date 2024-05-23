@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import MenuItem from "./MenuItem";
 
-const CategoryMenu = ({ items, btnText, btnLink }) => {
+const CategoryMenu = ({ items, title, btnText }) => {
   console.log(btnText);
   return (
     <div>
@@ -12,7 +12,7 @@ const CategoryMenu = ({ items, btnText, btnLink }) => {
         ))}
       </div>
       <div className="flex justify-center my-10">
-        <Link to={`/${btnLink}`} className="btn">
+        <Link to={`/order-menu/${title}`} className="btn">
           <p>{btnText}</p>
         </Link>
       </div>
