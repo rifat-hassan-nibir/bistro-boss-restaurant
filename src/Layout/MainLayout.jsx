@@ -4,16 +4,15 @@ import Footer from "../Components/Shared/Footer";
 
 const MainLayout = () => {
   const location = useLocation();
-  const noHeaderFooterInLogin = location.pathname.includes("login");
-  const noHeaderFooterInRegister = location.pathname.includes("register");
+  const noHeaderFooterInLogin = location.pathname.includes("login") || location.pathname.includes("register");
 
   return (
     <div>
-      {noHeaderFooterInLogin || noHeaderFooterInRegister || <Navbar></Navbar>}
+      {noHeaderFooterInLogin || <Navbar></Navbar>}
       <div className="min-h-[60vh]">
         <Outlet></Outlet>
       </div>
-      {noHeaderFooterInLogin || noHeaderFooterInRegister || <Footer></Footer>}
+      {noHeaderFooterInLogin || <Footer></Footer>}
     </div>
   );
 };

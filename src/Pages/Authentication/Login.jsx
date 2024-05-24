@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from "react-simple-captcha";
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from "react-simple-captcha";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const captchaRef = useRef();
@@ -84,6 +85,12 @@ const Login = () => {
                 </button>
               </div>
             </form>
+            <p>
+              New here?{" "}
+              <Link to="/register" className="text-blue-600 font-bold">
+                Sign Up
+              </Link>
+            </p>
           </div>
         </div>
       </div>
