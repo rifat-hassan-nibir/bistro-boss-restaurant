@@ -24,11 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "order-menu/:category",
-        element: (
-          <PrivateRoutes>
-            <OrderMenu></OrderMenu>
-          </PrivateRoutes>
-        ),
+        element: <OrderMenu></OrderMenu>,
       },
       {
         path: "login",
