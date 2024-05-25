@@ -1,12 +1,13 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from "react-simple-captcha";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const captchaRef = useRef();
   const [isDisabled, setIsDisabled] = useState(true);
   const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -19,6 +20,7 @@ const Login = () => {
     loginUser(email, password).then((result) => {
       const user = result.user;
       console.log(user);
+      navigate("/");
     });
   };
 
