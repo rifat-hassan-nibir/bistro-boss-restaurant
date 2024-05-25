@@ -25,6 +25,27 @@ const Skeleton = () => {
             <div className="skeleton h-4 w-full"></div>
             <div className="skeleton h-4 w-full"></div>
           </div>
+          <div className="space-y-4">
+            <div className="skeleton h-52"></div>
+            <div className="skeleton h-4 w-[50%]"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+          </div>
+          <div className="space-y-4">
+            <div className="skeleton h-52"></div>
+            <div className="skeleton h-4 w-[50%]"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+          </div>
+          <div className="space-y-4">
+            <div className="skeleton h-52"></div>
+            <div className="skeleton h-4 w-[50%]"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+            <div className="skeleton h-4 w-full"></div>
+          </div>
         </div>
       </div>
     </div>
