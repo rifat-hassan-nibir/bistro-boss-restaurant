@@ -25,10 +25,12 @@ const Navbar = () => {
       {user ? (
         <>
           <li>
-            <button className="btn">
-              <IoCartOutline />
-              <div className="badge badge-secondary">+{cart.length}</div>
-            </button>
+            <Link to="/dashboard/cart">
+              <button className="btn">
+                <IoCartOutline />
+                <div className="badge badge-secondary">+{cart.length}</div>
+              </button>
+            </Link>
           </li>
           <li>
             <button onClick={handleLogOut} className="btn">

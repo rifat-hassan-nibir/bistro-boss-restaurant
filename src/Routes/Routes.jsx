@@ -10,6 +10,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart";
 import AdminHome from "../Pages/Dashboard/AdminHome";
+import AddItem from "../Pages/Dashboard/AddItem";
 
 const router = createBrowserRouter([
   {
@@ -41,11 +42,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoutes>
+        <Dashboard></Dashboard>
+      </PrivateRoutes>
+    ),
     children: [
       {
-        index: true,
+        path: "home",
         element: <AdminHome></AdminHome>,
+      },
+      {
+        path: "add-item",
+        element: <AddItem></AddItem>,
       },
       {
         path: "cart",
