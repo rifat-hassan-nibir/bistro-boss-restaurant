@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -13,9 +16,18 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data);
     createUser(data.email, data.password).then((result) => {
-      console.log(result.user);
-      navigate("/");
+      const userInfo = {
+        name: data.name,
+        email: data.email,
+      };
+      axiosPublic.post("/users", userInfo).then((data) => {
+        if (data.data.insertedId) {
+          Swal.fire("User Created Succesfully");
+          navigate("/");
+        }
+      });
     });
   };
 
@@ -38,12 +50,13 @@ const Register = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="email"
+                placeholder="name"
                 className="input input-bordered"
                 {...register("name", { required: true })}
               />
               {errors.name && <span className="text-red-500">This field is required</span>}
             </div>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
