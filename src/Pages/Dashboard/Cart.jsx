@@ -1,7 +1,34 @@
+import Swal from "sweetalert2";
 import useCart from "../../Hooks/useCart";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Cart = () => {
-  const [cart] = useCart();
+  const [cart, refetch] = useCart();
+  const axiosSecure = useAxiosSecure();
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/delete-item/${id}`).then((data) => {
+          if (data.data.deletedCount > 0) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   return (
     <div>
@@ -31,9 +58,13 @@ const Cart = () => {
                 <td>
                   <img src={item.image} className="size-16"></img>
                 </td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
-                <td>Blue</td>
+                <td>{item.name}</td>
+                <td>$ {item.price}</td>
+                <td>
+                  <button onClick={() => handleDelete(item._id)} className="bg-red-500 px-3 py-1 rounded-full text-white">
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
